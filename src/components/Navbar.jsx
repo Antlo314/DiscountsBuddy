@@ -14,9 +14,13 @@ export default function Navbar() {
       </div>
       
       <nav className="navbar">
-        <Link to="/" className="nav-brand">
-          <ShoppingCartIcon />
-          DiscountsBuddy
+        <Link to="/" className="nav-brand" style={{ gap: '0.75rem' }}>
+          <img 
+            src="https://storage.googleapis.com/msgsndr/oGkE4T3ZyjuhK6Fu09IY/media/696573acf8a93bd2500a2cea.jpg" 
+            alt="DiscountsBuddy Logo" 
+            style={{ height: '42px', borderRadius: '8px', objectFit: 'contain' }} 
+          />
+          <span style={{ fontWeight: '800', letterSpacing: '-0.5px' }}>DiscountsBuddy</span>
         </Link>
         
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
