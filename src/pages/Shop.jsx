@@ -1,6 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { products } from '../data/products';
+import { useParams, Link } from 'react-router-dom';
+import { products, collections } from '../data/products';
 import { useCart } from '../context/CartContext';
 import { ShoppingBag } from 'lucide-react';
 
@@ -12,46 +12,83 @@ export default function Shop() {
     ? products.filter(p => p.category.toLowerCase() === category.toLowerCase())
     : products;
 
+  // Verbatim Title format
   const title = category 
-    ? category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ') 
+    ? collections.find(c => c.id === category)?.name || (category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' '))
     : 'All Collections';
 
   return (
-    <div style={{ paddingTop: '2rem' }}>
-      <div style={{ background: 'var(--surface-primary)', padding: '4rem 2rem', textAlign: 'center', borderBottom: '1px solid var(--border-muted)' }}>
-        <h1 style={{ fontSize: '3rem', margin: 0 }}>{title}</h1>
-        <p style={{ color: 'var(--text-secondary)', marginTop: '1rem', maxWidth: '600px', margin: '1rem auto 0' }}>Explore our handpicked selection of premium items at extreme discounts.</p>
+    <div style={{ paddingTop: '1rem', paddingBottom: '4rem', maxWidth: '1200px', margin: '0 auto' }}>
+      
+      {/* Verbatim Header Section */}
+      <div style={{ padding: '2rem 1rem', textAlign: 'left', borderBottom: '1px solid var(--border-muted)', marginBottom: '2rem' }}>
+        <h1 style={{ fontSize: '2.5rem', margin: 0, fontWeight: '700' }}>{title}</h1>
       </div>
       
-      <section className="category-section">
-        <div className="grid">
-          {displayedProducts.length > 0 ? displayedProducts.map(product => (
-            <div key={product.id} className="product-card">
-              <div className="card-img-wrap" style={{ borderRadius: '8px', marginBottom: '1rem', background: '#ffffff' }}>
-                <img src={product.image} alt={product.name} className="card-img" />
-              </div>
-              <div className="product-info">
-                <h3 style={{ fontSize: '1.1rem', margin: '0 0 0.5rem 0' }}>{product.name}</h3>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div>
-                    <span className="product-price">${product.price.toFixed(2)}</span>
-                    {product.oldPrice && <span className="product-old-price">${product.oldPrice.toFixed(2)}</span>}
-                  </div>
-                  <button 
-                    onClick={() => addToCart(product)}
-                    style={{ background: 'var(--surface-secondary)', border: '1px solid var(--border-muted)', color: 'white', padding: '0.5rem', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.3s' }}
-                    onMouseOver={(e) => { e.currentTarget.style.background = 'var(--accent-primary)'; e.currentTarget.style.borderColor = 'var(--accent-primary)'; }}
-                    onMouseOut={(e) => { e.currentTarget.style.background = 'var(--surface-secondary)'; e.currentTarget.style.borderColor = 'var(--border-muted)'; }}
-                  >
-                    <ShoppingBag size={20} />
-                  </button>
+      <section className="category-section" style={{ padding: '0 1rem' }}>
+        <div className="grid" style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+          gap: '2rem'
+        }}>
+          {displayedProducts.length > 0 ? displayedProducts.map(product => {
+            const savingsPercent = product.oldPrice && product.price < product.oldPrice 
+              ? Math.round((1 - (product.price / product.oldPrice)) * 100) 
+              : 0;
+
+            return (
+              <div key={product.id} className="verbatim-product-card" style={{ transition: 'transform 0.2s', cursor: 'pointer' }}>
+                <div style={{ borderRadius: '12px', background: '#fff', overflow: 'hidden', aspectRatio: '1', marginBottom: '1rem', position: 'relative' }}>
+                  <img src={product.image} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
+                
+                <h3 style={{ fontSize: '1rem', margin: '0 0 0.5rem 0', fontWeight: '500', color: 'var(--text-primary)', lineHeight: '1.4' }}>
+                  <Link to={`/products-list/collections/${product.category}`}>{product.name}</Link>
+                </h3>
+                
+                <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                  <span style={{ fontSize: '1.25rem', fontWeight: '700', color: 'var(--accent-primary)' }}>
+                    ${product.price.toFixed(2)}
+                  </span>
+                  {product.oldPrice && (
+                    <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', textDecoration: 'line-through' }}>
+                      ${product.oldPrice.toFixed(2)}
+                    </span>
+                  )}
+                  {savingsPercent > 0 && (
+                    <span style={{ color: '#10b981', fontSize: '0.85rem', fontWeight: '600' }}>
+                      {savingsPercent}% off
+                    </span>
+                  )}
+                </div>
+                
+                <button 
+                  onClick={() => addToCart(product)}
+                  style={{ 
+                    width: '100%',
+                    background: 'var(--accent-primary)', 
+                    color: 'white', 
+                    border: 'none',
+                    padding: '0.75rem', 
+                    borderRadius: '9999px', 
+                    cursor: 'pointer', 
+                    fontWeight: '600',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.5rem',
+                    transition: 'background 0.2s'
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.background = 'var(--accent-hover)'}
+                  onMouseOut={(e) => e.currentTarget.style.background = 'var(--accent-primary)'}
+                >
+                  <ShoppingBag size={18} /> Add to Cart
+                </button>
               </div>
-            </div>
-          )) : (
-            <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '4rem' }}>
-              <h3 style={{ color: 'var(--text-secondary)', fontSize: '1.5rem' }}>No products found in this category.</h3>
-              <p style={{ color: 'var(--text-secondary)' }}>Check back later for new deals.</p>
+            );
+          }) : (
+            <div style={{ gridColumn: '1 / -1', padding: '4rem 0' }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>We are restocking this collection. Check back soon for new deals.</p>
             </div>
           )}
         </div>

@@ -1,32 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Search, Menu } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function Navbar() {
   const { setIsDrawerOpen, itemsCount } = useCart();
 
   return (
-    <nav className="navbar">
-      <Link to="/" className="nav-brand">
-        <ShoppingCartIcon />
-        DiscountsBuddy
-      </Link>
+    <>
+      {/* Verbatim Top Banner */}
+      <div className="top-notice-bar">
+        Conyers, GA • New Deals Daily • Sold As-Is • Limited Stock
+      </div>
       
-      <div className="nav-links" style={{ display: 'none' }}>
-        {/* We'll make this responsive later */}
-        <Link to="/products-list" className="nav-item">Shop All</Link>
-        <Link to="/products-list/collections/electronics" className="nav-item">Electronics</Link>
-        <Link to="/products-list/collections/tools" className="nav-item">Tools</Link>
-      </div>
-
-      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-        <button className="cart-button" onClick={() => setIsDrawerOpen(true)}>
-          <ShoppingBag size={20} />
-          {itemsCount > 0 && <span style={{ fontWeight: 'bold' }}>{itemsCount}</span>}
-        </button>
-      </div>
-    </nav>
+      <nav className="navbar">
+        <Link to="/" className="nav-brand">
+          <ShoppingCartIcon />
+          DiscountsBuddy
+        </Link>
+        
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <button className="cart-button" onClick={() => setIsDrawerOpen(true)}>
+            <ShoppingBag size={20} />
+            {itemsCount > 0 && <span style={{ fontWeight: 'bold', color: 'var(--accent-primary)' }}>{itemsCount}</span>}
+          </button>
+        </div>
+      </nav>
+    </>
   );
 }
 

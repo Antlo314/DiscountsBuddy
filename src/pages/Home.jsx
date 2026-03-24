@@ -1,49 +1,57 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import { useCart } from '../context/CartContext';
-import { products } from '../data/products';
-import { ShoppingBag } from 'lucide-react';
+import { collections } from '../data/products';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
-  const { addToCart } = useCart();
-  const featured = products.slice(0, 8);
-
   return (
     <div className="home-page">
       <Hero />
-      <section className="category-section">
-        <h2 className="section-title">Today's Deals</h2>
-        <div className="grid">
-          {featured.map(product => (
-            <div key={product.id} className="product-card">
-              <Link to={`/products-list/collections/${product.category.toLowerCase()}`}>
-                <div className="card-img-wrap" style={{ borderRadius: '8px', marginBottom: '1rem', background: '#ffffff' }}>
-                  <img src={product.image} alt={product.name} className="card-img" />
-                </div>
-              </Link>
-              <div className="product-info">
-                <h3 style={{ fontSize: '1.1rem', margin: '0 0 0.5rem 0' }}>{product.name}</h3>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div>
-                    <span className="product-price">${product.price.toFixed(2)}</span>
-                    {product.oldPrice && <span className="product-old-price">${product.oldPrice.toFixed(2)}</span>}
-                  </div>
-                  <button 
-                    onClick={() => addToCart(product)}
-                    style={{ background: 'var(--surface-secondary)', border: '1px solid var(--border-muted)', color: 'white', padding: '0.5rem', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.3s' }}
-                    onMouseOver={(e) => { e.currentTarget.style.background = 'var(--accent-primary)'; e.currentTarget.style.borderColor = 'var(--accent-primary)'; }}
-                    onMouseOut={(e) => { e.currentTarget.style.background = 'var(--surface-secondary)'; e.currentTarget.style.borderColor = 'var(--border-muted)'; }}
-                  >
-                    <ShoppingBag size={20} />
-                  </button>
-                </div>
+      
+      <section className="collections-section" style={{ padding: '4rem 2rem', maxWidth: '1200px', margin: '0 auto' }}>
+        <h2 style={{ fontSize: '2rem', marginBottom: '2rem', color: 'var(--text-primary)', textAlign: 'left', fontWeight: '500' }}>
+          Collections
+        </h2>
+        
+        <div className="collections-grid" style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+          gap: '2rem' 
+        }}>
+          {collections.map(collection => (
+            <Link to={collection.path} key={collection.id} className="collection-card" style={{ textDecoration: 'none' }}>
+              <div 
+                className="collection-img-wrap" 
+                style={{ 
+                  backgroundColor: '#ffffff', 
+                  borderRadius: '16px', 
+                  aspectRatio: '1', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  overflow: 'hidden',
+                  marginBottom: '1rem',
+                  transition: 'transform 0.3s ease'
+                }}
+              >
+                <img 
+                  src={collection.image} 
+                  alt={collection.name} 
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+                />
               </div>
-            </div>
+              <p style={{ 
+                margin: 0, 
+                fontSize: '1.1rem', 
+                color: 'var(--text-primary)', 
+                fontWeight: '400',
+                display: 'flex',
+                alignItems: 'center'
+              }}>
+                {collection.name} <span style={{ marginLeft: '4px' }}>&rarr;</span>
+              </p>
+            </Link>
           ))}
-        </div>
-        <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-          <Link to="/products-list" className="btn-primary" style={{ display: 'inline-block' }}>View All Collections</Link>
         </div>
       </section>
     </div>
