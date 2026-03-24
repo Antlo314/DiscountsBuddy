@@ -1,11 +1,11 @@
 export const collections = [
-  { id: 'electronics', name: 'Premium Electronics', path: '/products-list/collections/electronics', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be368e125ef72cada4b0c.png' },
-  { id: 'home-kitchen', name: 'Curated Home & Kitchen', path: '/products-list/collections/home-kitchen', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be5a3b34b64388457255c.png' },
-  { id: 'bath-beauty', name: 'Luxury Bath & Beauty', path: '/products-list/collections/bath-beauty', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be4fd4e42b98cbc7f5f12.png' },
-  { id: 'apparel', name: 'Exclusive Apparel', path: '/products-list/collections/apparel', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be434e125ef717eda9d1f.png' },
-  { id: 'kids-toys', name: 'Educational Kids & Toys', path: '/products-list/collections/kids-toys', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be3ed4e42b968d77ec3f5.png' },
-  { id: 'tools', name: 'Professional Tools & DIY', path: '/products-list/collections/tools', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be48c439b6b1fbd156d87.png' },
-  { id: 'clearance', name: 'Elite Clearance', path: '/products-list/collections/clearance', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be5e4d403b7e0ffbcde87.png' }
+  { id: 'electronics', name: 'Premium Electronics', path: '/products-list/collections/electronics', image: '/collections/cartoon_man_electronics.png' },
+  { id: 'home-kitchen', name: 'Curated Home & Kitchen', path: '/products-list/collections/home-kitchen', image: '/collections/cartoon_man_kitchen.png' },
+  { id: 'bath-beauty', name: 'Luxury Bath & Beauty', path: '/products-list/collections/bath-beauty', image: '/collections/cartoon_man_bath.png' },
+  { id: 'apparel', name: 'Exclusive Apparel', path: '/products-list/collections/apparel', image: '/collections/cartoon_man_apparel.png' },
+  { id: 'kids-toys', name: 'Educational Kids & Toys', path: '/products-list/collections/kids-toys', image: '/collections/cartoon_man_kids.png' },
+  { id: 'tools', name: 'Professional Tools & DIY', path: '/products-list/collections/tools', image: '/collections/cartoon_man_tools.png' },
+  { id: 'clearance', name: 'Elite Vault Clearance', path: '/products-list/collections/clearance', image: '/collections/cartoon_man_clearance.png' }
 ];
 
 export const products = [
