@@ -6,6 +6,9 @@ import Shop from './pages/Shop';
 import Footer from './components/Footer';
 import CartDrawer from './components/CartDrawer';
 import { CartProvider } from './context/CartContext';
+import Privacy from './pages/Privacy';
+import Returns from './pages/Returns';
+import Shipping from './pages/Shipping';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/products-list" element={<Shop />} />
               <Route path="/products-list/collections/:category" element={<Shop />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/returns" element={<Returns />} />
+              <Route path="/shipping" element={<Shipping />} />
             </Routes>
           </main>
           <Footer />
