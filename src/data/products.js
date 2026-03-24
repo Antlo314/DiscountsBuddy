@@ -1,0 +1,10 @@
+export const products = [
+  { id: 1, name: "Valentine's Conversation Hearts Plush Blanket", price: 12.99, oldPrice: 19.99, category: "clearance", image: "https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/697162c010cc275c29e8e5d4.png" },
+  { id: 2, name: "Funko Pop! Marvel: Doctor Strange", price: 12.00, oldPrice: 18.00, category: "clearance", image: "https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/69713bc6bfff24dcb4c1d805.png" },
+  { id: 3, name: "Mad Man Pour Homme 3-Piece Gift Set", price: 9.99, oldPrice: 17.99, category: "clearance", image: "https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/69714408440eea5096711afb.png" },
+  { id: 4, name: "Premium Electronics Assortment", price: 45.00, oldPrice: 80.00, category: "electronics", image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_400/u_https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be368e125ef72cada4b0c.png" },
+  { id: 5, name: "Home & Kitchen Essentials", price: 35.00, oldPrice: 65.00, category: "home-kitchen", image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_400/u_https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be5a3b34b64388457255c.png" },
+  { id: 6, name: "Bath & Beauty Care Pack", price: 25.00, oldPrice: 45.00, category: "bath-beauty", image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_400/u_https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be4fd4e42b98cbc7f5f12.png" },
+  { id: 7, name: "Kids Toys Bundle", price: 15.00, oldPrice: 30.00, category: "kids-toys", image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_400/u_https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be3ed4e42b968d77ec3f5.png" },
+  { id: 8, name: "Tools & Hardware Set", price: 55.00, oldPrice: 95.00, category: "tools", image: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_400/u_https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be48c439b6b1fbd156d87.png" }
+];
