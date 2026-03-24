@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, Search, User } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function Navbar() {
@@ -8,38 +8,41 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Verbatim Top Banner */}
       <div className="top-notice-bar">
-        Conyers, GA • New Deals Daily • Sold As-Is • Limited Stock
+        <span>The Vault</span> • Secure Express Delivery • Limited Exclusive Stock
       </div>
       
-      <nav className="navbar">
-        <Link to="/" className="nav-brand" style={{ gap: '0.75rem' }}>
+      <nav className="navbar" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', padding: '1.25rem 5%' }}>
+        <div style={{ display: 'flex', gap: '1.5rem', color: 'var(--text-secondary)' }}>
+          <button style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center' }}>
+            <Search size={22} />
+          </button>
+        </div>
+
+        <Link to="/" className="nav-brand" style={{ justifyContent: 'center' }}>
+          {/* Attempt to load the new premium logo, fallback to text if missing relative pathing issue */}
           <img 
-            src="https://storage.googleapis.com/msgsndr/oGkE4T3ZyjuhK6Fu09IY/media/696573acf8a93bd2500a2cea.jpg" 
-            alt="DiscountsBuddy Logo" 
-            style={{ height: '42px', borderRadius: '8px', objectFit: 'contain' }} 
+            src="/assets/premium_shopping_logo_1774385562969.png" 
+            alt="DiscountsBuddy Prestige Logo" 
+            style={{ height: '48px', objectFit: 'contain' }}
+            onError={(e) => { e.currentTarget.style.display = 'none'; document.getElementById('brand-text-fallback').style.display = 'block'; }}
           />
-          <span style={{ fontWeight: '800', letterSpacing: '-0.5px' }}>DiscountsBuddy</span>
+          <span id="brand-text-fallback" style={{ display: 'none', fontWeight: '600', letterSpacing: '-0.5px' }}>DISCOUNTSBUDDY</span>
         </Link>
         
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', justifyContent: 'flex-end', color: 'var(--text-primary)' }}>
+          <button style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', display: 'flex', alignItems: 'center' }}>
+            <User size={22} />
+          </button>
+          
           <button className="cart-button" onClick={() => setIsDrawerOpen(true)}>
             <ShoppingBag size={20} />
-            {itemsCount > 0 && <span style={{ fontWeight: 'bold', color: 'var(--accent-primary)' }}>{itemsCount}</span>}
+            <span style={{ fontWeight: '600', fontSize: '0.9rem' }}>
+              Bag {itemsCount > 0 ? `(${itemsCount})` : ''}
+            </span>
           </button>
         </div>
       </nav>
     </>
   );
-}
-
-function ShoppingCartIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--accent-primary)'}}>
-      <circle cx="9" cy="21" r="1"></circle>
-      <circle cx="20" cy="21" r="1"></circle>
-      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-    </svg>
-  )
 }
