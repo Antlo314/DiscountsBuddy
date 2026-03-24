@@ -1,11 +1,11 @@
 export const collections = [
-  { id: 'electronics', name: 'Premium Electronics', path: '/products-list/collections/electronics', image: '/assets/electronics_collection_img_1774385577663.png' },
-  { id: 'home-kitchen', name: 'Curated Home & Kitchen', path: '/products-list/collections/home-kitchen', image: '/assets/home_kitchen_collection_img_1774385591978.png' },
-  { id: 'bath-beauty', name: 'Luxury Bath & Beauty', path: '/products-list/collections/bath-beauty', image: '/assets/bath_beauty_collection_img_1774385605880.png' },
-  { id: 'apparel', name: 'Exclusive Apparel', path: '/products-list/collections/apparel', image: '/assets/apparel_collection_img_1774385916699.png' },
-  { id: 'kids-toys', name: 'Educational Kids & Toys', path: '/products-list/collections/kids-toys', image: '/assets/kids_toys_collection_img_1774385621439.png' },
-  { id: 'tools', name: 'Professional Tools & DIY', path: '/products-list/collections/tools', image: '/assets/tools_collection_img_1774385634869.png' },
-  { id: 'clearance', name: 'Elite Clearance', path: '/products-list/collections/clearance', image: '/assets/clearance_collection_img_1774385654789.png' }
+  { id: 'electronics', name: 'Premium Electronics', path: '/products-list/collections/electronics', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be368e125ef72cada4b0c.png' },
+  { id: 'home-kitchen', name: 'Curated Home & Kitchen', path: '/products-list/collections/home-kitchen', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be5a3b34b64388457255c.png' },
+  { id: 'bath-beauty', name: 'Luxury Bath & Beauty', path: '/products-list/collections/bath-beauty', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be4fd4e42b98cbc7f5f12.png' },
+  { id: 'apparel', name: 'Exclusive Apparel', path: '/products-list/collections/apparel', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be434e125ef717eda9d1f.png' },
+  { id: 'kids-toys', name: 'Educational Kids & Toys', path: '/products-list/collections/kids-toys', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be3ed4e42b968d77ec3f5.png' },
+  { id: 'tools', name: 'Professional Tools & DIY', path: '/products-list/collections/tools', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be48c439b6b1fbd156d87.png' },
+  { id: 'clearance', name: 'Elite Clearance', path: '/products-list/collections/clearance', image: 'https://storage.googleapis.com/msgsndr/216dRNg5U2X2MneHKfzF/media/696be5e4d403b7e0ffbcde87.png' }
 ];
 
 export const products = [

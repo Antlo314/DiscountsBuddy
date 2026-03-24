@@ -20,14 +20,12 @@ export default function Navbar() {
         </div>
 
         <Link to="/" className="nav-brand" style={{ justifyContent: 'center' }}>
-          {/* Attempt to load the new premium logo, fallback to text if missing relative pathing issue */}
           <img 
-            src="/assets/premium_shopping_logo_1774385562969.png" 
-            alt="DiscountsBuddy Prestige Logo" 
-            style={{ height: '48px', objectFit: 'contain' }}
-            onError={(e) => { e.currentTarget.style.display = 'none'; document.getElementById('brand-text-fallback').style.display = 'block'; }}
+            src="https://storage.googleapis.com/msgsndr/oGkE4T3ZyjuhK6Fu09IY/media/696573acf8a93bd2500a2cea.jpg" 
+            alt="DiscountsBuddy Logo" 
+            style={{ height: '42px', borderRadius: '8px', objectFit: 'contain' }} 
           />
-          <span id="brand-text-fallback" style={{ display: 'none', fontWeight: '600', letterSpacing: '-0.5px' }}>DISCOUNTSBUDDY</span>
+          <span style={{ fontWeight: '800', letterSpacing: '-0.5px' }}>DiscountsBuddy</span>
         </Link>
         
         <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', justifyContent: 'flex-end', color: 'var(--text-primary)' }}>
